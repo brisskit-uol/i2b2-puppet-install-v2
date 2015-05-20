@@ -1,0 +1,22 @@
+Extract files to respective folders :
+/var/local/brisskit/i2b2/i2b2-1.7-install-procedures
+/var/local/brisskit/i2b2/jboss-as-7.1.1.Final
+/var/local/brisskit/i2b2/jdk1.7.0_17
+
+place webclient.tar.gz in /var/www/
+
+create database :
+
+CREATE DATABASE i2b2 OWNER postgres ;
+create user i2b2;
+alter user i2b2 with superuser;
+alter user i2b2 with PASSWORD 'i2b2';
+
+create user i2b2demodata password 'demouser';
+create user i2b2hive password 'demouser';
+create user i2b2metadata password 'demouser' ;
+create user i2b2pm password 'demouser' ;
+create user i2b2workdata password 'demouser' ;
+create user i2b2im password 'demouser' ;
+
+psql -U postgres -d i2b2 -f /var/local/brisskit/i2b2/i2b2-dump.sql
